@@ -38,7 +38,7 @@ class _HomeState extends State<Home> {
               height: 16.0,
             ),
             TextFormField(
-              decoration: InputDecoration(hintText: numberCard),
+              decoration: InputDecoration(hintText: cardNumber(numberCard)),
               enabled: false,
             ),
             SizedBox(
@@ -78,6 +78,13 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
+  }
+
+  String cardNumber(String number) {
+    if (numberCard.length <= 16) {
+      numberCard.padLeft(16, '0');
+      return '${numberCard.substring(0, 4)} ${numberCard.substring(4, 8)} ${numberCard.substring(8, 12)} ${numberCard.substring(12, 16)}';
+    }
   }
 
   void _onSucess() {

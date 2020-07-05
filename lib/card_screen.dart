@@ -62,7 +62,7 @@ class _CardScreenState extends State<CardScreen> {
                   bottom: 180,
                   left: 40,
                   child: Text(
-                    numberCard,
+                    cardNumber(numberCard),
                     style: TextStyle(fontSize: 16, color: Colors.white),
                   )),
               Positioned(
@@ -73,6 +73,13 @@ class _CardScreenState extends State<CardScreen> {
                     width: 60,
                   )),
             ])));
+  }
+
+  String cardNumber(String number) {
+    if (numberCard.length <= 16) {
+      numberCard.padLeft(16, '0');
+      return '${numberCard.substring(0, 4)} ${numberCard.substring(4, 8)} ${numberCard.substring(8, 12)} ${numberCard.substring(12, 16)}';
+    }
   }
 }
 
